@@ -5,7 +5,7 @@
 - Django + Django REST Framework: fast, reliable API + ORM for a small but complete backend.
 - PostgreSQL (primary) + SQLite (local/CI fallback): PostgreSQL for production-style relational querying, SQLite for lightweight local and CI execution.
 - `defusedxml`: safer XML parsing for untrusted/malformed input handling.
-- `psycopg` (v3): PostgreSQL driver used by Django and raw SQL execution.
+- `psycopg`: PostgreSQL driver used by Django and for parameterized raw SQL queries.
 - Docker Compose: reproducible local database setup.
 - Pytest: lightweight test runner for parser/logic validation.
 - SonarLint CLI: static analysis in the local/CI pipeline.
