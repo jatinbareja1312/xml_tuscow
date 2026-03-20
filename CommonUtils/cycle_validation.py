@@ -12,10 +12,10 @@ def _sql_file_path() -> Path:
 
 def _find_cycles_postgres(graph_id: str) -> list[list[str]]:
     """Find cycles for one graph using the shared recursive SQL query."""
-    # Keep SQL file portable with $1 style parameter, then adapt for Django cursor params.
-    sql = _sql_file_path().read_text(encoding="utf-8").replace("$1", "%s")
+    sql = _sql_file_path().read_text(encoding="utf-8")
     with connection.cursor() as cursor:
-        cursor.execute(sql, [graph_id])
+        # Named parameter binding is used here to prevent SQL injection.
+        cursor.execute(sql, {"graph_id": graph_id})
         rows = cursor.fetchall()
     return [row[0] for row in rows if row and row[0]]
 

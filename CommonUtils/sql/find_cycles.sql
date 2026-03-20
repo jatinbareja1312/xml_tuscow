@@ -1,5 +1,5 @@
 -- Find cycles for one logical graph key (graphs.graph_id).
--- Use $1 as the graph key parameter (example: 'g0').
+-- Use %(graph_id)s as the named parameter.
 
 WITH RECURSIVE graph_edges AS (
     SELECT
@@ -8,7 +8,7 @@ WITH RECURSIVE graph_edges AS (
         e.to_node_id
     FROM edges e
     JOIN graphs g ON g.id = e.graph_id
-    WHERE g.graph_id = $1
+    WHERE g.graph_id = %(graph_id)s
 ),
 walk AS (
     SELECT

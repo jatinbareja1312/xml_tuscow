@@ -2,6 +2,7 @@ swagger: "2.0"
 info:
   title: Graph Query API
   version: "v1"
+  description: Demo OpenAPI spec for challenge submission/reference.
 host: api.example.com
 basePath: /
 schemes:

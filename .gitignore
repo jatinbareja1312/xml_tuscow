@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.sonarlint/
 .venv/
 .env
 .DS_Store

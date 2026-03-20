@@ -1,19 +1,16 @@
 # AI Usage
-
-AI was used as a coding pair to restructure the project to your requested architecture.
+AI was used as an implementation assistant under my architecture and design direction.
 
 ## AI-assisted areas
-- Refactoring from the previous layout into Django-centric modules.
-- Drafting Django settings, ORM models, and migration runner.
-- Drafting and then simplifying API request flow to a single direct `POST /query` handler.
-- Drafting the `Jobs/bootstrap_upsert_graph` job entrypoint and parser tests.
+- Refactoring and boilerplate reduction.
+- Drafting helper code for Django settings, ORM wiring, migration runner, and tests.
+- Iterative cleanup of API/job flow and scripts based on my review feedback.
 
 ## Manual review performed
-- Verified the new folder hierarchy matches the requested structure.
-- Checked model relationships and constraints.
-- Reviewed XML validation rules and DB load flow.
-- Verified endpoint shape and query logic for `paths` and `cheapest`.
-- Verified unused API serializer module and removed it.
+- Defined the architecture and repository structure.
+- Reviewed model relationships, constraints, and migration behavior.
+- Verified XML validation, ingestion flow, and API query behavior.
+- Approved or rejected suggested changes during each iteration.
 
 ## Final responsibility
-All generated code was reviewed and adjusted manually before finalizing.
+All final technical decisions, reviews, and acceptance were performed by me.

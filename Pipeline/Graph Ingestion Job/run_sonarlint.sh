@@ -14,6 +14,8 @@ fi
 
 if command -v sonarlint >/dev/null 2>&1; then
   echo "Running SonarLint..." | tee "$LOG_FILE"
+  find "$ROOT_DIR" -type d -name "__pycache__" -prune -exec rm -rf {} +
+  find "$ROOT_DIR" -type f -name "*.pyc" -delete
   set +e
   (
     cd "$ROOT_DIR"
