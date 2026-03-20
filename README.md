@@ -3,7 +3,7 @@
 ## Tech Stack and Why
 - Python 3.12: modern typing/features with strong ecosystem support.
 - Django + Django REST Framework: fast, reliable API + ORM for a small but complete backend.
-- PostgreSQL (primary) + SQLite (local fallback): PostgreSQL for target-grade relational queries, SQLite for easy local/CI runs.
+- PostgreSQL (primary) + SQLite (local/CI fallback): PostgreSQL for production-style relational querying, SQLite for lightweight local and CI execution.
 - `defusedxml`: safer XML parsing for untrusted/malformed input handling.
 - `psycopg` (v3): PostgreSQL driver used by Django and raw SQL execution.
 - Docker Compose: reproducible local database setup.
@@ -111,3 +111,10 @@ Run logs are written to:
 - Cycle detection SQL: `CommonUtils/sql/find_cycles.sql`
 - `EXPLAIN ANALYZE` examples: `DatabaseModels/sql/explain_analyze_samples.md`
 - Raw SQL execution uses named parameter binding (for example `{"graph_id": graph_id}`) to prevent SQL injection.
+
+## Performance Notes for Large Graphs
+- `paths` query returns all simple paths; worst-case growth is exponential with graph density/branching.
+- `cheapest` query uses Dijkstra-style traversal and is generally efficient for sparse graphs.
+- Cycle detection SQL is recursive and can be expensive on dense cyclic graphs.
+- Current indexes (`edges(graph, from_node)` and uniqueness-backed indexes) help traversal and joins.
+- For very large graphs, consider adding guardrails such as max depth, max returned paths, and query timeouts.
