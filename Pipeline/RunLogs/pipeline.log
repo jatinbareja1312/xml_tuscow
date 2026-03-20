@@ -1,8 +1,14 @@
 RunAll start
-sonarlint command not found. Install SonarLint CLI to enable lint checks.
+Running SonarLint...
+INFO: Java 17.0.16 Microsoft (64-bit)
+INFO: Mac OS X 14.3.1 aarch64
+INFO: Standalone mode
+INFO: Index files
+INFO: 61 files indexed
+SonarLint completed with exit code 1 (non-blocking).
 Running Jobs tests...
 ...                                                                      [100%]
-3 passed in 0.01s
+3 passed in 0.02s
 Running API tests...
 Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
 Found 1 test(s).

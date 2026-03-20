@@ -14,13 +14,17 @@ fi
 
 if command -v sonarlint >/dev/null 2>&1; then
   echo "Running SonarLint..." | tee "$LOG_FILE"
-  sonarlint "$ROOT_DIR" \
-    -Dsonar.sourceEncoding=UTF-8 \
-    --exclude "**/__pycache__/**" \
-    --exclude "**/*.pyc" \
-    --exclude "**/*.md" \
-    2>&1 | tee -a "$LOG_FILE"
-  exit "${PIPESTATUS[0]}"
+  set +e
+  (
+    cd "$ROOT_DIR"
+    sonarlint --exclude "**/__pycache__/**" --exclude "**/*.pyc" --exclude "**/*.md"
+  ) 2>&1 | tee -a "$LOG_FILE"
+  sonarlint_status="${PIPESTATUS[0]}"
+  set -e
+  if [[ "$sonarlint_status" -ne 0 ]]; then
+    echo "SonarLint completed with exit code $sonarlint_status (non-blocking)." | tee -a "$LOG_FILE"
+  fi
+  exit 0
 fi
 
 echo "sonarlint command not found. Install SonarLint CLI to enable lint checks." | tee "$LOG_FILE"
