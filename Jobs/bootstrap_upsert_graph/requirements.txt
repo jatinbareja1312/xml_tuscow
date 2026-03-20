@@ -1,0 +1,6 @@
+-r ../../requirements_dev.txt
+defusedxml==0.7.1
+psycopg[binary]==3.3.3
+pytest==8.4.2
+-e CommonUtils
+-e DatabaseModels

@@ -1,0 +1,4 @@
+-r ../requirements_dev.txt
+djangorestframework==3.16.1
+-e CommonUtils
+-e DatabaseModels

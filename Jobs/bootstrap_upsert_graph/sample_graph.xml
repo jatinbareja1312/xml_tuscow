@@ -1,0 +1,54 @@
+<graph>
+  <id>g0</id>
+  <name>The Graph Name</name>
+  <nodes>
+    <node>
+      <id>a</id>
+      <name>A name</name>
+    </node>
+    <node>
+      <id>b</id>
+      <name>B name</name>
+    </node>
+    <node>
+      <id>e</id>
+      <name>E name</name>
+    </node>
+    <node>
+      <id>h</id>
+      <name>H name</name>
+    </node>
+  </nodes>
+  <edges>
+    <edge>
+      <id>e1</id>
+      <from>a</from>
+      <to>b</to>
+      <cost>10</cost>
+    </edge>
+    <edge>
+      <id>e2</id>
+      <from>b</from>
+      <to>e</to>
+      <cost>20</cost>
+    </edge>
+    <edge>
+      <id>e3</id>
+      <from>a</from>
+      <to>e</to>
+      <cost>5</cost>
+    </edge>
+    <edge>
+      <id>e4</id>
+      <from>e</from>
+      <to>h</to>
+      <cost>1</cost>
+    </edge>
+    <edge>
+      <id>e5</id>
+      <from>a</from>
+      <to>h</to>
+      <cost>0.42</cost>
+    </edge>
+  </edges>
+</graph>
